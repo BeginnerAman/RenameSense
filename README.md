@@ -1,8 +1,10 @@
 <p align="center">
   <a href="https://beginneraman.github.io/RenameSense/">
-    <img src="assets/logo_wordmark.png" alt="RenameSense Logo" width="380">
+    <img src="assets/app_icon.png" alt="RenameSense Logo" width="128" height="128" style="border-radius: 24px;">
   </a>
 </p>
+
+<h1 align="center">RenameSense</h1>
 
 <p align="center">
   <b>Enterprise-Grade, Safe, and Offline-First Batch File Renamer for Windows</b>
