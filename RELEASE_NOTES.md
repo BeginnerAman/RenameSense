@@ -35,27 +35,30 @@ RenameSense is 100% free proprietary freeware for personal, creative, and commer
 
 ---
 
-## Download and Installation
+## Download Options
 
-1. Download RenameSense-3.0.0-Setup.exe from the Assets section below.
-2. Run the installer and follow the on-screen setup instructions.
-3. Launch RenameSense from your Start Menu or Desktop shortcut.
+RenameSense v3.0.0 is distributed in two official formats:
 
-### System Requirements
-- Operating System: Windows 10 (64-bit) or Windows 11 (64-bit)
-- Processor: x86-64 compatible processor
-- Memory: 4 GB RAM minimum (8 GB recommended for batches exceeding 50,000 files)
-- Storage: 150 MB available disk space
-- Network: No internet connection required (100% offline application)
+### Option 1: Windows Setup Installer (Recommended)
+- File Name: RenameSense-3.0.0-Setup.exe
+- File Size: 74,259,974 bytes (~74.2 MB)
+- Features: Automatic per-user installation, Desktop and Start Menu shortcuts, and Windows Explorer right-click shell integration.
+- SHA-256 Checksum: `3EB8E830FF188A1F2A7D26BFA27F9562EA9BB9DB053615868DABED716A600137`
+
+### Option 2: Portable Package (No Installation Required)
+- File Name: RenameSense-3.0.0-Portable.zip
+- File Size: 111,594,747 bytes (~106.4 MB)
+- Features: Standalone archive. Extract anywhere (including USB flash drives or portable media) and run RenameSense.exe directly without system installation or administrator rights.
+- SHA-256 Checksum: `4D8E0F2E28EEF40E2361455DAE338DB14BE67BC9ADE4E79027C5D690E309D226`
 
 ---
 
-## File Verification and Checksum
-
-- File Name: RenameSense-3.0.0-Setup.exe
-- File Size: 74,259,974 bytes (~74.2 MB)
-- Architecture: x86-64 (Windows 64-bit)
-- SHA-256 Checksum: `3EB8E830FF188A1F2A7D26BFA27F9562EA9BB9DB053615868DABED716A600137`
+## System Requirements
+- Operating System: Windows 10 (64-bit) or Windows 11 (64-bit)
+- Processor: x86-64 compatible processor
+- Memory: 4 GB RAM minimum (8 GB recommended for batches exceeding 50,000 files)
+- Storage: 250 MB available disk space for portable extraction (150 MB for installer)
+- Network: No internet connection required (100% offline application)
 
 ---
 
