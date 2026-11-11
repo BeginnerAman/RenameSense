@@ -320,139 +320,26 @@
       line-height: 1.45;
     }
 
-    /* Windows 11 Desktop UI Showcase */
-    .app-showcase-wrapper {
-      margin: 40px auto 0;
-      max-width: 1040px;
-      border-radius: 12px;
-      border: 1px solid var(--border-color);
-      background: #0d1117;
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(2, 132, 199, 0.12);
-      overflow: hidden;
-      text-align: left;
-    }
-
-    .app-showcase-titlebar {
-      height: 38px;
-      background: #111419;
-      border-bottom: 1px solid var(--border-color);
+    .hero-actions-desktop {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 16px;
-      font-size: 12px;
-      color: var(--text-muted);
     }
 
-    .app-showcase-controls {
-      display: flex;
-      gap: 7px;
+    .hero-actions-mobile {
+      display: none;
     }
 
-    .app-showcase-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: #30363d;
+    .nav-github-mobile {
+      display: none;
     }
 
-    .app-showcase-body {
-      padding: 24px;
-    }
-
-    .showcase-path-bar {
-      background: #161b22;
-      border: 1px solid var(--border-color);
-      border-radius: 6px;
-      padding: 10px 14px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-family: var(--font-mono);
-      font-size: 13px;
-      color: var(--text-main);
-      margin-bottom: 18px;
-    }
-
-    .showcase-tabs {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 16px;
-      border-bottom: 1px solid var(--border-color);
-      padding-bottom: 12px;
-    }
-
-    .showcase-tab {
-      padding: 6px 14px;
-      border-radius: 6px;
-      font-size: 13px;
-      font-weight: 500;
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      color: var(--text-muted);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .showcase-tab.active {
-      background: rgba(2, 132, 199, 0.15);
-      border-color: var(--accent);
-      color: #38bdf8;
-      font-weight: 600;
-    }
-
-    .showcase-chips {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-      margin-bottom: 16px;
-    }
-
-    .showcase-chip {
-      font-family: var(--font-mono);
-      font-size: 12px;
-      padding: 3px 8px;
-      border-radius: 4px;
-      background: #161b22;
-      border: 1px solid var(--border-color);
-      color: var(--text-muted);
-    }
-
-    .showcase-table {
+    /* Table Container for Mobile Scrolling */
+    .table-container {
       width: 100%;
-      border-collapse: collapse;
-      font-size: 13px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
       border: 1px solid var(--border-color);
-      border-radius: 6px;
-      overflow: hidden;
-      margin-bottom: 16px;
-    }
-
-    .showcase-table th {
-      background: #111419;
-      padding: 10px 14px;
-      color: var(--text-muted);
-      font-weight: 600;
-      text-align: left;
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    .showcase-table td {
-      padding: 10px 14px;
-      border-bottom: 1px solid var(--border-color);
-      background: var(--bg-surface);
-      font-family: var(--font-mono);
-    }
-
-    .showcase-status-bar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-top: 12px;
-      border-top: 1px solid var(--border-color);
-      font-size: 12px;
-      color: var(--text-dim);
+      border-radius: 10px;
+      background: var(--bg-card);
     }
 
     /* Section Styling */
@@ -831,14 +718,82 @@
     }
 
     @media (max-width: 768px) {
+      .hero {
+        padding: 48px 0 36px;
+      }
       .hero-title {
-        font-size: 30px;
+        font-size: 28px;
+        letter-spacing: -0.5px;
       }
       .hero-subtitle {
-        font-size: 16px;
+        font-size: 15px;
+        margin-bottom: 24px;
+      }
+      .hero-actions-desktop {
+        display: none !important;
+      }
+      .hero-actions-mobile {
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 20px;
+      }
+      .btn-mobile-github {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        color: var(--text-main);
+        padding: 12px 22px;
+        border-radius: 8px;
+        font-size: 14.5px;
+        font-weight: 600;
+        text-decoration: none;
+        width: 100%;
+        max-width: 290px;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+        transition: all 0.2s ease;
+      }
+      .btn-mobile-github:hover {
+        background: var(--bg-hover);
+        border-color: rgba(56, 189, 248, 0.4);
+        color: #38bdf8;
+      }
+      .mobile-note-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 12px;
+        color: var(--text-dim);
+      }
+      .nav-cta-desktop {
+        display: none !important;
+      }
+      .nav-github-mobile {
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        border-radius: 8px;
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        color: var(--text-main);
+        text-decoration: none;
+        transition: all 0.2s ease;
+      }
+      .nav-github-mobile:hover {
+        background: var(--bg-hover);
+        border-color: rgba(56, 189, 248, 0.4);
+        color: #38bdf8;
       }
       .hero-metrics {
         grid-template-columns: 1fr;
+        margin-top: 24px;
+        gap: 12px;
       }
       .steps-grid {
         grid-template-columns: 1fr;
@@ -873,10 +828,17 @@
         <a href="#faq">FAQ</a>
         <a href="#download">Download</a>
       </nav>
-      <div>
-        <a href="#download" class="nav-cta">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <!-- Desktop CTA -->
+        <a href="#download" class="nav-cta nav-cta-desktop">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
           <span>Get RenameSense</span>
+        </a>
+        <!-- Mobile GitHub Icon Redirect -->
+        <a href="https://github.com/BeginnerAman/RenameSense" class="nav-github-mobile" title="View GitHub Repository" aria-label="View GitHub Repository">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
         </a>
       </div>
     </div>
@@ -898,7 +860,8 @@
         Rename thousands of files in seconds with real-time preview diffs, multi-stage sequential regex rules, and guaranteed 1-click transaction rollbacks. 100% free proprietary desktop software.
       </p>
 
-      <div class="hero-actions">
+      <!-- Desktop Actions -->
+      <div class="hero-actions hero-actions-desktop">
         <a href="https://github.com/BeginnerAman/RenameSense/releases/download/v3.0.0/RenameSense-3.0.0-Setup.exe" class="btn-download-primary">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
           <span>Download Installer (74.2 MB)</span>
@@ -907,6 +870,20 @@
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.29 7 12 12 20.71 7"/><line x1="12" x2="12" y1="22" y2="12"/></svg>
           <span>Download Portable (106.4 MB)</span>
         </a>
+      </div>
+
+      <!-- Mobile Actions (Shown on mobile screens) -->
+      <div class="hero-actions-mobile">
+        <a href="https://github.com/BeginnerAman/RenameSense" class="btn-mobile-github">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+          <span>View on GitHub</span>
+        </a>
+        <div class="mobile-note-pill">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>
+          <span>Windows Desktop App &bull; Open on PC to Download</span>
+        </div>
       </div>
 
       <div class="hero-info-label">
@@ -947,100 +924,8 @@
           <div class="metric-label">Zero cloud calls, zero analytics tracking, and zero telemetry packets.</div>
         </div>
       </div>
-
-      <!-- Windows 11 Desktop UI Showcase Frame -->
-      <div class="app-showcase-wrapper">
-        <div class="app-showcase-titlebar">
-          <div style="display: flex; align-items: center; gap: 8px;">
-            <img src="assets/app_icon.png" alt="Icon" style="width: 16px; height: 16px; border-radius: 3px;">
-            <span style="font-weight: 600; color: var(--text-main);">RenameSense v3.0.0</span>
-            <span style="color: var(--text-dim);">&bull;</span>
-            <span style="color: var(--text-muted); font-family: var(--font-mono); font-size: 11.5px;">D:\Photos\Japan_Trip_2026</span>
-          </div>
-          <div class="app-showcase-controls">
-            <span class="app-showcase-dot"></span>
-            <span class="app-showcase-dot"></span>
-            <span class="app-showcase-dot"></span>
-          </div>
-        </div>
-        <div class="app-showcase-body">
-          <div class="showcase-path-bar">
-            <div style="display: flex; align-items: center; gap: 10px;">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #38bdf8;"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>
-              <span>D:\Photos\Japan_Trip_2026</span>
-            </div>
-            <div style="display: flex; align-items: center; gap: 12px; font-size: 12px; color: var(--text-muted);">
-              <span>Target: Files Only</span>
-              <span style="background: rgba(35, 134, 54, 0.2); color: #2ea043; padding: 2px 8px; border-radius: 4px; font-weight: 600;">420 Files Loaded</span>
-            </div>
-          </div>
-
-          <div class="showcase-tabs">
-            <span class="showcase-tab active">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
-              <span>Dynamic Template</span>
-            </span>
-            <span class="showcase-tab">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-              <span>Replace Multi-Step</span>
-            </span>
-            <span class="showcase-tab">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
-              <span>Case &amp; Separators</span>
-            </span>
-          </div>
-
-          <div class="showcase-chips">
-            <span class="showcase-chip" style="background: rgba(2, 132, 199, 0.15); color: #38bdf8; font-weight: 600;">Format: Tokyo_{date}_{seq:03d}.{ext}</span>
-            <span class="showcase-chip">{name}</span>
-            <span class="showcase-chip">{cleaned}</span>
-            <span class="showcase-chip">{date}</span>
-            <span class="showcase-chip">{seq:03d}</span>
-            <span class="showcase-chip">{camera}</span>
-            <span class="showcase-chip">{parent}</span>
-          </div>
-
-          <table class="showcase-table">
-            <thead>
-              <tr>
-                <th style="width: 44%;">Original Filename</th>
-                <th style="width: 44%;">Proposed Filename (Live Diff)</th>
-                <th style="width: 12%;">Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td style="color: var(--text-muted);">DSC_08412.JPG</td>
-                <td style="color: #38bdf8; font-weight: 600;">Tokyo_2026-04-12_001.jpg</td>
-                <td><span style="background: rgba(35, 134, 54, 0.2); color: #2ea043; padding: 2px 7px; border-radius: 4px; font-size: 11px; font-weight: 600;">Valid</span></td>
-              </tr>
-              <tr>
-                <td style="color: var(--text-muted);">DSC_08413.JPG</td>
-                <td style="color: #38bdf8; font-weight: 600;">Tokyo_2026-04-12_002.jpg</td>
-                <td><span style="background: rgba(35, 134, 54, 0.2); color: #2ea043; padding: 2px 7px; border-radius: 4px; font-size: 11px; font-weight: 600;">Valid</span></td>
-              </tr>
-              <tr>
-                <td style="color: var(--text-muted);">DSC_08414.JPG</td>
-                <td style="color: #38bdf8; font-weight: 600;">Tokyo_2026-04-12_003.jpg</td>
-                <td><span style="background: rgba(35, 134, 54, 0.2); color: #2ea043; padding: 2px 7px; border-radius: 4px; font-size: 11px; font-weight: 600;">Valid</span></td>
-              </tr>
-            </tbody>
-          </table>
-
-          <div class="showcase-status-bar">
-            <div style="display: flex; align-items: center; gap: 16px;">
-              <span>Total: 420</span>
-              <span>Selected: 420</span>
-              <span style="color: #2ea043; font-weight: 600;">Valid: 420</span>
-              <span>Collisions: 0</span>
-            </div>
-            <div style="display: flex; align-items: center; gap: 6px; color: #2ea043; font-weight: 600;">
-              <span style="width: 7px; height: 7px; border-radius: 50%; background: #2ea043; display: inline-block;"></span>
-              <span>Safe WAL Journal Ready</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    </div>
+  </section>
     </div>
   </section>
 
@@ -1280,78 +1165,80 @@
         </p>
       </div>
 
-      <table class="compare-table">
-        <thead>
-          <tr>
-            <th style="width: 35%;">Capability</th>
-            <th style="width: 25%;" class="compare-highlight">RenameSense v3.0.0</th>
-            <th style="width: 20%;">PowerToys PowerRename</th>
-            <th style="width: 20%;">Legacy Bulk Renamers</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Atomic Write-Ahead Log (WAL) Journal</td>
-            <td class="compare-highlight"><span class="check-yes">&#10003; Included (100% Durable)</span></td>
-            <td><span class="check-no">No</span></td>
-            <td><span class="check-no">No</span></td>
-          </tr>
-          <tr>
-            <td>1-Click Full Batch Rollback &amp; Audit History</td>
-            <td class="compare-highlight"><span class="check-yes">&#10003; Yes (Persistent Ledger)</span></td>
-            <td>Basic Explorer Undo</td>
-            <td><span class="check-no">Unreliable / None</span></td>
-          </tr>
-          <tr>
-            <td>Real-Time Dual Diff Modes (Split &amp; Unified)</td>
-            <td class="compare-highlight"><span class="check-yes">&#10003; Yes (Character-Level)</span></td>
-            <td>Basic List Diff</td>
-            <td><span class="check-no">None</span></td>
-          </tr>
-          <tr>
-            <td>Sequential Multi-Stage Rule Pipeline</td>
-            <td class="compare-highlight"><span class="check-yes">&#10003; Yes (Chained Rules)</span></td>
-            <td><span class="check-no">Single Rule Only</span></td>
-            <td>Complex Syntax</td>
-          </tr>
-          <tr>
-            <td>Windows Case-Only Rename Safety (NTFS/ReFS)</td>
-            <td class="compare-highlight"><span class="check-yes">&#10003; Yes (2-Phase Staging)</span></td>
-            <td>Can Cause Collisions</td>
-            <td><span class="check-no">Manual Staging Required</span></td>
-          </tr>
-          <tr>
-            <td>Pre-Flight Win32 Collision Shield</td>
-            <td class="compare-highlight"><span class="check-yes">&#10003; Yes (Full Validation)</span></td>
-            <td>Basic Warning</td>
-            <td>Partial Warning</td>
-          </tr>
-          <tr>
-            <td>Windows Explorer Shell Right-Click Context Menu</td>
-            <td class="compare-highlight"><span class="check-yes">&#10003; Built-In</span></td>
-            <td><span class="check-yes">&#10003; Built-In</span></td>
-            <td>Manual Registry Script</td>
-          </tr>
-          <tr>
-            <td>Portable Standalone (No-Install) Option</td>
-            <td class="compare-highlight"><span class="check-yes">&#10003; Official ZIP Archive</span></td>
-            <td><span class="check-no">Installer Only</span></td>
-            <td>Varies</td>
-          </tr>
-          <tr>
-            <td>Modern Windows 11 Fluent Interface</td>
-            <td class="compare-highlight"><span class="check-yes">&#10003; Yes (Dark &amp; Light)</span></td>
-            <td>System Standard</td>
-            <td><span class="check-no">Outdated Win32 (XP Era)</span></td>
-          </tr>
-          <tr>
-            <td>100% Offline &amp; Zero Cloud Telemetry</td>
-            <td class="compare-highlight"><span class="check-yes">&#10003; Zero Telemetry</span></td>
-            <td>Telemetry Enabled</td>
-            <td>Varies</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="table-container">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th style="width: 35%;">Capability</th>
+              <th style="width: 25%;" class="compare-highlight">RenameSense v3.0.0</th>
+              <th style="width: 20%;">PowerToys PowerRename</th>
+              <th style="width: 20%;">Legacy Bulk Renamers</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Atomic Write-Ahead Log (WAL) Journal</td>
+              <td class="compare-highlight"><span class="check-yes">&#10003; Included (100% Durable)</span></td>
+              <td><span class="check-no">No</span></td>
+              <td><span class="check-no">No</span></td>
+            </tr>
+            <tr>
+              <td>1-Click Full Batch Rollback &amp; Audit History</td>
+              <td class="compare-highlight"><span class="check-yes">&#10003; Yes (Persistent Ledger)</span></td>
+              <td>Basic Explorer Undo</td>
+              <td><span class="check-no">Unreliable / None</span></td>
+            </tr>
+            <tr>
+              <td>Real-Time Dual Diff Modes (Split &amp; Unified)</td>
+              <td class="compare-highlight"><span class="check-yes">&#10003; Yes (Character-Level)</span></td>
+              <td>Basic List Diff</td>
+              <td><span class="check-no">None</span></td>
+            </tr>
+            <tr>
+              <td>Sequential Multi-Stage Rule Pipeline</td>
+              <td class="compare-highlight"><span class="check-yes">&#10003; Yes (Chained Rules)</span></td>
+              <td><span class="check-no">Single Rule Only</span></td>
+              <td>Complex Syntax</td>
+            </tr>
+            <tr>
+              <td>Windows Case-Only Rename Safety (NTFS/ReFS)</td>
+              <td class="compare-highlight"><span class="check-yes">&#10003; Yes (2-Phase Staging)</span></td>
+              <td>Can Cause Collisions</td>
+              <td><span class="check-no">Manual Staging Required</span></td>
+            </tr>
+            <tr>
+              <td>Pre-Flight Win32 Collision Shield</td>
+              <td class="compare-highlight"><span class="check-yes">&#10003; Yes (Full Validation)</span></td>
+              <td>Basic Warning</td>
+              <td>Partial Warning</td>
+            </tr>
+            <tr>
+              <td>Windows Explorer Shell Right-Click Context Menu</td>
+              <td class="compare-highlight"><span class="check-yes">&#10003; Built-In</span></td>
+              <td><span class="check-yes">&#10003; Built-In</span></td>
+              <td>Manual Registry Script</td>
+            </tr>
+            <tr>
+              <td>Portable Standalone (No-Install) Option</td>
+              <td class="compare-highlight"><span class="check-yes">&#10003; Official ZIP Archive</span></td>
+              <td><span class="check-no">Installer Only</span></td>
+              <td>Varies</td>
+            </tr>
+            <tr>
+              <td>Modern Windows 11 Fluent Interface</td>
+              <td class="compare-highlight"><span class="check-yes">&#10003; Yes (Dark &amp; Light)</span></td>
+              <td>System Standard</td>
+              <td><span class="check-no">Outdated Win32 (XP Era)</span></td>
+            </tr>
+            <tr>
+              <td>100% Offline &amp; Zero Cloud Telemetry</td>
+              <td class="compare-highlight"><span class="check-yes">&#10003; Zero Telemetry</span></td>
+              <td>Telemetry Enabled</td>
+              <td>Varies</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </section>
 
