@@ -289,11 +289,34 @@
       scroll-margin-top: 76px;
     }
 
-    /* Hero Section - Streamlined First-Fold Height */
+    /* Hero Section - Viewport-Aware First Fold */
     .hero {
-      padding: 38px 0 32px;
+      min-height: calc(100vh - 64px);
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+      padding: 24px 0 20px;
       text-align: center;
       position: relative;
+    }
+
+    .hero-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      flex: 1;
+      width: 100%;
+    }
+
+    .hero-main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      padding: 8px 0;
     }
 
     .hero-pill {
@@ -407,7 +430,8 @@
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 16px;
-      margin: 22px auto 0;
+      margin: 16px auto 0;
+      width: 100%;
       max-width: 1040px;
       text-align: left;
     }
@@ -882,11 +906,16 @@
         display: flex !important;
       }
       .hero {
-        padding: 30px 0 24px;
+        min-height: calc(100dvh - 60px) !important;
+        min-height: calc(100vh - 60px) !important; /* fallback */
+        padding: 16px 0 14px !important;
+      }
+      .hero-main {
+        padding: 4px 0 !important;
       }
       .hero-pill {
         padding: 5px 12px;
-        margin-bottom: 14px;
+        margin-bottom: 10px;
         font-size: 11.5px;
         white-space: nowrap;
         max-width: 90vw;
@@ -899,15 +928,15 @@
         display: inline !important;
       }
       .hero-title {
-        font-size: 25px;
+        font-size: 24px;
         letter-spacing: -0.5px;
         line-height: 1.25;
-        margin-bottom: 12px;
+        margin-bottom: 10px;
       }
       .hero-subtitle {
-        font-size: 14px;
-        margin-bottom: 20px;
-        line-height: 1.5;
+        font-size: 13.5px;
+        margin-bottom: 16px;
+        line-height: 1.48;
       }
       .hero-actions-desktop {
         display: none !important;
@@ -916,8 +945,8 @@
         display: flex !important;
         flex-direction: column;
         align-items: center;
-        gap: 12px;
-        margin-bottom: 16px;
+        gap: 10px;
+        margin-bottom: 14px;
       }
       .btn-mobile-github {
         display: inline-flex;
@@ -960,7 +989,7 @@
       .hero-metrics {
         grid-template-columns: repeat(2, 1fr) !important;
         gap: 8px !important;
-        margin-top: 18px !important;
+        margin-top: 12px !important;
       }
       .metric-card {
         padding: 12px 14px !important;
@@ -1145,53 +1174,55 @@
 
   <!-- Hero Section -->
   <section class="hero">
-    <div class="container">
-      <div class="hero-pill">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="M10 8h4"/><path d="M12 6v4"/></svg>
-        <span class="pill-text-desktop">Windows 11 Fluent Design &bull; Local &amp; Offline-First</span>
-        <span class="pill-text-mobile">Windows 10 &amp; 11 &bull; 100% Offline</span>
-      </div>
+    <div class="container hero-container">
+      <div class="hero-main">
+        <div class="hero-pill">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="M10 8h4"/><path d="M12 6v4"/></svg>
+          <span class="pill-text-desktop">Windows 11 Fluent Design &bull; Local &amp; Offline-First</span>
+          <span class="pill-text-mobile">Windows 10 &amp; 11 &bull; 100% Offline</span>
+        </div>
 
-      <h1 class="hero-title">
-        Intelligent, Safe, and Offline-First Batch File Renaming for Windows
-      </h1>
+        <h1 class="hero-title">
+          Intelligent, Safe, and Offline-First Batch File Renaming for Windows
+        </h1>
 
-      <p class="hero-subtitle">
-        Rename thousands of files in seconds with real-time preview diffs, multi-stage sequential regex rules, AI regex assistant, and guaranteed 1-click transaction rollbacks. 100% free proprietary desktop software.
-      </p>
+        <p class="hero-subtitle">
+          Rename thousands of files in seconds with real-time preview diffs, multi-stage sequential regex rules, AI regex assistant, and guaranteed 1-click transaction rollbacks. 100% free proprietary desktop software.
+        </p>
 
-      <!-- Desktop Actions -->
-      <div class="hero-actions hero-actions-desktop">
-        <a href="https://github.com/BeginnerAman/RenameSense/releases/download/v3.0.0/RenameSense-3.0.0-Setup.exe" class="btn-download-primary">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
-          <span>Download Installer (58.1 MB)</span>
-        </a>
-        <a href="https://github.com/BeginnerAman/RenameSense/releases/download/v3.0.0/RenameSense-3.0.0-Portable.zip" class="btn-download-secondary">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.29 7 12 12 20.71 7"/><line x1="12" x2="12" y1="22" y2="12"/></svg>
-          <span>Download Portable (79.4 MB)</span>
-        </a>
-      </div>
+        <!-- Desktop Actions -->
+        <div class="hero-actions hero-actions-desktop">
+          <a href="https://github.com/BeginnerAman/RenameSense/releases/download/v3.0.0/RenameSense-3.0.0-Setup.exe" class="btn-download-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+            <span>Download Installer (58.1 MB)</span>
+          </a>
+          <a href="https://github.com/BeginnerAman/RenameSense/releases/download/v3.0.0/RenameSense-3.0.0-Portable.zip" class="btn-download-secondary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.29 7 12 12 20.71 7"/><line x1="12" x2="12" y1="22" y2="12"/></svg>
+            <span>Download Portable (79.4 MB)</span>
+          </a>
+        </div>
 
-      <!-- Mobile Actions (Shown on mobile screens) -->
-      <div class="hero-actions hero-actions-mobile">
-        <a href="https://github.com/BeginnerAman/RenameSense" class="btn-mobile-github">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-          </svg>
-          <span>View on GitHub</span>
-        </a>
-        <div class="mobile-note-pill">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>
-          <span>Windows Desktop App &bull; Open on PC to Download</span>
+        <!-- Mobile Actions (Shown on mobile screens) -->
+        <div class="hero-actions hero-actions-mobile">
+          <a href="https://github.com/BeginnerAman/RenameSense" class="btn-mobile-github">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+            </svg>
+            <span>View on GitHub</span>
+          </a>
+          <div class="mobile-note-pill">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>
+            <span>Windows Desktop App &bull; Open on PC to Download</span>
+          </div>
+        </div>
+
+        <div class="hero-info-label">
+          <span class="hero-info-desktop">Official Release v3.0.0 &bull; Windows 10 &amp; 11 (64-bit) &bull; Zero Cloud Telemetry &bull; Free Personal &amp; Commercial Use</span>
+          <span class="hero-info-mobile">Official Release v3.0.0 &bull; Free Personal &amp; Commercial Use</span>
         </div>
       </div>
 
-      <div class="hero-info-label">
-        <span class="hero-info-desktop">Official Release v3.0.0 &bull; Windows 10 &amp; 11 (64-bit) &bull; Zero Cloud Telemetry &bull; Free Personal &amp; Commercial Use</span>
-        <span class="hero-info-mobile">Official Release v3.0.0 &bull; Free Personal &amp; Commercial Use</span>
-      </div>
-
-      <!-- Hero Metrics Strip - Perfectly fits on 1080p laptop displays -->
+      <!-- Hero Metrics Strip - Docked cleanly at fold 1 bottom -->
       <div class="hero-metrics">
         <div class="metric-card">
           <div class="metric-val">
