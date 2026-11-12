@@ -6,8 +6,8 @@
   <title>RenameSense - Intelligent Batch File Renamer for Windows 10 &amp; 11</title>
   
   <!-- Search Engine Optimization (SEO) -->
-  <meta name="description" content="Fast, safe, and offline-first batch file renaming for Windows 10 and 11. Features dynamic templates, multi-stage sequential regex rules, and 1-click transaction rollback.">
-  <meta name="keywords" content="batch file renamer, windows file renamer, safe file rename, bulk rename utility, regex renamer, photo renamer, transaction rollback">
+  <meta name="description" content="Fast, safe, and offline-first batch file renaming for Windows 10 and 11. Features dynamic templates, multi-stage sequential regex rules, AI regex assistant, and 1-click transaction rollback.">
+  <meta name="keywords" content="batch file renamer, windows file renamer, safe file rename, bulk rename utility, regex renamer, photo renamer, transaction rollback, offline file renamer, fluent design">
   <meta name="author" content="Aman Vishwakarma">
   <meta name="robots" content="index, follow">
 
@@ -15,14 +15,14 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://beginneraman.github.io/RenameSense/">
   <meta property="og:title" content="RenameSense - Intelligent Batch File Renamer for Windows">
-  <meta property="og:description" content="Fast, safe, and offline batch file renaming with real-time preview diffs, multi-stage sequential regex rules, and 1-click transaction rollback.">
+  <meta property="og:description" content="Fast, safe, and offline batch file renaming with real-time preview diffs, multi-stage sequential regex rules, and guaranteed 1-click transaction rollback.">
   <meta property="og:image" content="https://beginneraman.github.io/RenameSense/assets/app_icon.png">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://beginneraman.github.io/RenameSense/">
   <meta property="twitter:title" content="RenameSense - Intelligent Batch File Renamer for Windows">
-  <meta property="twitter:description" content="Fast, safe, and offline batch file renaming with real-time preview diffs, multi-stage sequential regex rules, and 1-click transaction rollback.">
+  <meta property="twitter:description" content="Fast, safe, and offline batch file renaming with real-time preview diffs, multi-stage sequential regex rules, and guaranteed 1-click transaction rollback.">
   <meta property="twitter:image" content="https://beginneraman.github.io/RenameSense/assets/app_icon.png">
 
   <!-- Favicon -->
@@ -103,7 +103,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(13, 17, 23, 0.85);
+      background: rgba(13, 17, 23, 0.88);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border-color);
       height: 64px;
@@ -182,9 +182,99 @@
       transform: translateY(-1px);
     }
 
+    /* Mobile Controls */
+    .mobile-controls {
+      display: none;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .mobile-menu-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .mobile-menu-btn:hover {
+      background: var(--bg-hover);
+      border-color: rgba(56, 189, 248, 0.4);
+      color: #38bdf8;
+    }
+
+    .nav-github-mobile {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .nav-github-mobile:hover {
+      background: var(--bg-hover);
+      border-color: rgba(56, 189, 248, 0.4);
+      color: #38bdf8;
+    }
+
+    .mobile-nav-drawer {
+      display: none;
+      position: fixed;
+      top: 64px;
+      left: 0;
+      right: 0;
+      background: rgba(13, 17, 23, 0.98);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 16px 24px 24px;
+      z-index: 99;
+      flex-direction: column;
+      gap: 12px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
+    }
+
+    .mobile-nav-drawer.open {
+      display: flex;
+    }
+
+    .mobile-nav-drawer a {
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      padding: 10px 14px;
+      border-radius: 8px;
+      transition: background 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .mobile-nav-drawer a:hover {
+      background: rgba(56, 189, 248, 0.1);
+      color: #38bdf8;
+    }
+
+    /* Anchor Offset for Smooth Nav Scrolling */
+    section[id] {
+      scroll-margin-top: 76px;
+    }
+
     /* Hero Section */
     .hero {
-      padding: 64px 0 50px;
+      padding: 64px 0 48px;
       text-align: center;
       position: relative;
     }
@@ -328,11 +418,7 @@
       display: none;
     }
 
-    .nav-github-mobile {
-      display: none;
-    }
-
-    /* Table Container for Mobile Scrolling */
+    /* Table Container & Mobile Swipe Hint */
     .table-container {
       width: 100%;
       overflow-x: auto;
@@ -342,16 +428,29 @@
       background: var(--bg-card);
     }
 
+    .table-mobile-hint {
+      display: none;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px dashed rgba(56, 189, 248, 0.3);
+      padding: 6px 12px;
+      border-radius: 6px;
+      margin-bottom: 12px;
+    }
+
     /* Section Styling */
     .section {
-      padding: 80px 0;
+      padding: 72px 0;
       border-top: 1px solid var(--border-color);
     }
 
     .section-header {
       text-align: center;
       max-width: 760px;
-      margin: 0 auto 56px;
+      margin: 0 auto 52px;
     }
 
     .section-badge {
@@ -452,56 +551,53 @@
       background: var(--bg-card);
       border: 1px solid var(--border-color);
       border-radius: 12px;
-      padding: 30px;
+      padding: 26px;
       transition: transform 0.2s ease, border-color 0.2s ease;
     }
 
     .feature-card:hover {
-      transform: translateY(-4px);
+      transform: translateY(-3px);
       border-color: rgba(56, 189, 248, 0.4);
     }
 
     .feature-icon-wrapper {
-      width: 48px;
-      height: 48px;
+      width: 42px;
+      height: 42px;
       border-radius: 10px;
       background: rgba(2, 132, 199, 0.12);
       color: #38bdf8;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
 
     .feature-title {
-      font-size: 18px;
+      font-size: 17px;
       font-weight: 700;
-      margin-bottom: 12px;
+      margin-bottom: 8px;
       color: var(--text-main);
     }
 
     .feature-desc {
-      font-size: 14px;
+      font-size: 13.5px;
       color: var(--text-muted);
-      line-height: 1.6;
+      line-height: 1.55;
     }
 
     /* Comparison Table */
     .compare-table {
       width: 100%;
       border-collapse: collapse;
-      border: 1px solid var(--border-color);
-      border-radius: 10px;
-      overflow: hidden;
-      background: var(--bg-card);
+      text-align: left;
     }
 
     .compare-table th,
     .compare-table td {
       padding: 16px 20px;
-      text-align: left;
       font-size: 14px;
       border-bottom: 1px solid var(--border-color);
+      white-space: nowrap;
     }
 
     .compare-table th {
@@ -698,13 +794,10 @@
       color: var(--text-main);
     }
 
-    /* Responsive */
+    /* Responsive Queries */
     @media (max-width: 992px) {
       .hero-title {
         font-size: 38px;
-      }
-      .hero-metrics {
-        grid-template-columns: repeat(2, 1fr);
       }
       .steps-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -718,16 +811,30 @@
     }
 
     @media (max-width: 768px) {
+      .navbar {
+        height: 60px;
+      }
+      .nav-links {
+        display: none !important;
+      }
+      .nav-cta-desktop {
+        display: none !important;
+      }
+      .mobile-controls {
+        display: flex !important;
+      }
       .hero {
-        padding: 48px 0 36px;
+        padding: 40px 0 32px;
       }
       .hero-title {
-        font-size: 28px;
+        font-size: 27px;
         letter-spacing: -0.5px;
+        margin-bottom: 16px;
       }
       .hero-subtitle {
-        font-size: 15px;
+        font-size: 14.5px;
         margin-bottom: 24px;
+        line-height: 1.55;
       }
       .hero-actions-desktop {
         display: none !important;
@@ -753,7 +860,7 @@
         font-weight: 600;
         text-decoration: none;
         width: 100%;
-        max-width: 290px;
+        max-width: 280px;
         box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
         transition: all 0.2s ease;
       }
@@ -769,31 +876,23 @@
         font-size: 12px;
         color: var(--text-dim);
       }
-      .nav-cta-desktop {
-        display: none !important;
-      }
-      .nav-github-mobile {
-        display: inline-flex !important;
-        align-items: center;
-        justify-content: center;
-        width: 38px;
-        height: 38px;
-        border-radius: 8px;
-        background: var(--bg-card);
-        border: 1px solid var(--border-color);
-        color: var(--text-main);
-        text-decoration: none;
-        transition: all 0.2s ease;
-      }
-      .nav-github-mobile:hover {
-        background: var(--bg-hover);
-        border-color: rgba(56, 189, 248, 0.4);
-        color: #38bdf8;
-      }
       .hero-metrics {
-        grid-template-columns: 1fr;
-        margin-top: 24px;
-        gap: 12px;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+        margin-top: 24px !important;
+      }
+      .metric-card {
+        padding: 12px 14px !important;
+      }
+      .metric-val {
+        font-size: 14.5px !important;
+      }
+      .metric-label {
+        font-size: 11.5px !important;
+        line-height: 1.4 !important;
+      }
+      .table-mobile-hint {
+        display: inline-flex !important;
       }
       .steps-grid {
         grid-template-columns: 1fr;
@@ -804,8 +903,14 @@
       .faq-grid {
         grid-template-columns: 1fr;
       }
-      .nav-links {
-        display: none;
+      .section {
+        padding: 56px 0;
+      }
+      .section-title {
+        font-size: 26px;
+      }
+      .section-desc {
+        font-size: 14px;
       }
     }
   </style>
@@ -820,6 +925,8 @@
         <span>RenameSense</span>
         <span class="brand-badge">v3.0.0</span>
       </a>
+
+      <!-- Desktop Nav Links -->
       <nav class="nav-links">
         <a href="#how-it-works">How It Works</a>
         <a href="#features">Features</a>
@@ -828,21 +935,38 @@
         <a href="#faq">FAQ</a>
         <a href="#download">Download</a>
       </nav>
-      <div style="display: flex; align-items: center; gap: 10px;">
-        <!-- Desktop CTA -->
-        <a href="#download" class="nav-cta nav-cta-desktop">
+
+      <!-- Desktop Action -->
+      <div class="nav-cta-desktop">
+        <a href="#download" class="nav-cta">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
           <span>Get RenameSense</span>
         </a>
-        <!-- Mobile GitHub Icon Redirect -->
+      </div>
+
+      <!-- Mobile Controls (GitHub Icon + Menu Toggle) -->
+      <div class="mobile-controls">
         <a href="https://github.com/BeginnerAman/RenameSense" class="nav-github-mobile" title="View GitHub Repository" aria-label="View GitHub Repository">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
             <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
           </svg>
         </a>
+        <button id="mobileMenuBtn" class="mobile-menu-btn" aria-label="Toggle Mobile Menu" aria-expanded="false">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" x2="21" y1="6" y2="6"/><line x1="3" x2="21" y1="12" y2="12"/><line x1="3" x2="21" y1="18" y2="18"/></svg>
+        </button>
       </div>
     </div>
   </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div id="mobileNavDrawer" class="mobile-nav-drawer">
+    <a href="#how-it-works"><span>How It Works</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+    <a href="#features"><span>Features</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+    <a href="#architecture"><span>Architecture</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+    <a href="#comparison"><span>Comparison</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+    <a href="#faq"><span>FAQ</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+    <a href="#download" style="color: #38bdf8; font-weight: 600;"><span>Download v3.0.0</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+  </div>
 
   <!-- Hero Section -->
   <section class="hero">
@@ -857,23 +981,23 @@
       </h1>
 
       <p class="hero-subtitle">
-        Rename thousands of files in seconds with real-time preview diffs, multi-stage sequential regex rules, and guaranteed 1-click transaction rollbacks. 100% free proprietary desktop software.
+        Rename thousands of files in seconds with real-time preview diffs, multi-stage sequential regex rules, AI regex assistant, and guaranteed 1-click transaction rollbacks. 100% free proprietary desktop software.
       </p>
 
       <!-- Desktop Actions -->
       <div class="hero-actions hero-actions-desktop">
         <a href="https://github.com/BeginnerAman/RenameSense/releases/download/v3.0.0/RenameSense-3.0.0-Setup.exe" class="btn-download-primary">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
-          <span>Download Installer (74.2 MB)</span>
+          <span>Download Installer (58.1 MB)</span>
         </a>
         <a href="https://github.com/BeginnerAman/RenameSense/releases/download/v3.0.0/RenameSense-3.0.0-Portable.zip" class="btn-download-secondary">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.29 7 12 12 20.71 7"/><line x1="12" x2="12" y1="22" y2="12"/></svg>
-          <span>Download Portable (106.4 MB)</span>
+          <span>Download Portable (79.4 MB)</span>
         </a>
       </div>
 
       <!-- Mobile Actions (Shown on mobile screens) -->
-      <div class="hero-actions-mobile">
+      <div class="hero-actions hero-actions-mobile">
         <a href="https://github.com/BeginnerAman/RenameSense" class="btn-mobile-github">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
             <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
@@ -890,7 +1014,7 @@
         Official Release v3.0.0 &bull; Windows 10 &amp; 11 (64-bit) &bull; Zero Cloud Telemetry &bull; Free Personal &amp; Commercial Use
       </div>
 
-      <!-- Hero Metrics Strip -->
+      <!-- Hero Metrics Strip (Clean 2x2 grid on mobile) -->
       <div class="hero-metrics">
         <div class="metric-card">
           <div class="metric-val">
@@ -926,8 +1050,6 @@
       </div>
     </div>
   </section>
-    </div>
-  </section>
 
   <!-- How It Works Section -->
   <section id="how-it-works" class="section">
@@ -959,9 +1081,9 @@
           <div class="step-icon-wrapper">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
           </div>
-          <h3 class="step-title">Configure Rules</h3>
+          <h3 class="step-title">Configure Rules or Ask AI</h3>
           <p class="step-desc">
-            Insert dynamic tokens ({name}, {seq:03d}, {date}, {parent}, EXIF, ID3) or build a sequential rule pipeline with full Regex capture group ($1, $2) support.
+            Insert dynamic tokens ({name}, {seq:03d}, {date}, EXIF, ID3), build sequential find-and-replace rules, or ask the AI assistant to write complex regex for you.
           </p>
         </div>
 
@@ -992,52 +1114,96 @@
     </div>
   </section>
 
-  <!-- Features Section -->
+  <!-- Core Features Section -->
   <section id="features" class="section">
     <div class="container">
       <div class="section-header">
         <span class="section-badge">Core Features</span>
         <h2 class="section-title">Built for Precision, Speed, and Control</h2>
         <p class="section-desc">
-          Every tool and feature in RenameSense is crafted to streamline mass renaming without compromising system integrity.
+          Every capability in RenameSense is engineered to streamline mass renaming without compromising system integrity.
         </p>
       </div>
 
       <div class="feature-grid">
-        <!-- Feature 1 -->
+        <!-- Feature 1: Dynamic Tokens -->
         <div class="feature-card">
           <div class="feature-icon-wrapper">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/><path d="M12 12v9"/><path d="m16 16-4-4-4 4"/></svg>
           </div>
-          <h3 class="feature-title">Dynamic Token Formatting</h3>
+          <h3 class="feature-title">Dynamic Template Formatting</h3>
           <p class="feature-desc">
-            Assemble file templates using intuitive tokens: {name}, {cleaned}, {ext}, {date}, {seq}, {seq:03d}, {parent}, ID3 music tags ({artist}, {title}, {track}), and photo EXIF ({camera}, {exif_date}).
+            Assemble filenames using dynamic tokens: {name}, {cleaned}, {ext}, {date}, {seq}, {seq:03d}, {parent}, ID3 music metadata ({artist}, {title}, {track}), and photo EXIF ({camera}, {exif_date}).
           </p>
         </div>
 
-        <!-- Feature 2 -->
+        <!-- Feature 2: Sequential Pipeline -->
         <div class="feature-card">
           <div class="feature-icon-wrapper">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
           </div>
-          <h3 class="feature-title">Multi-Step Rule Pipeline</h3>
+          <h3 class="feature-title">Sequential Multi-Stage Pipeline</h3>
           <p class="feature-desc">
-            Chain multiple sequential find-and-replace rules where each rule transforms the result of previous operations. Combine Regex capture groups ($1, $2) and live dynamic tokens into replacement strings.
+            Chain multiple find-and-replace rules where each step transforms the output of previous operations. Combine full Regular Expressions with capture groups ($1, $2) and dynamic tokens.
           </p>
         </div>
 
-        <!-- Feature 3 -->
+        <!-- Feature 3: AI Regex Assistant -->
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" x2="12.01" y1="17" y2="17"/></svg>
+          </div>
+          <h3 class="feature-title">AI Regex &amp; Rename Assistant</h3>
+          <p class="feature-desc">
+            Ask AI to write Regex powered by Groq (Llama-3.3-70B) and Google Gemini. Type natural instructions like &quot;extract year from brackets&quot; to generate tested patterns. Zero file contents ever leave your computer.
+          </p>
+        </div>
+
+        <!-- Feature 4: Live Dual Diff -->
         <div class="feature-card">
           <div class="feature-icon-wrapper">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" x2="18" y1="20" y2="10"/><line x1="12" x2="12" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="14"/></svg>
           </div>
           <h3 class="feature-title">Real-Time Dual Diff Previews</h3>
           <p class="feature-desc">
-            Toggle between side-by-side Split View and compact Unified Diff. View character-level color-coded insertions and deletions instantly before committing any changes to disk.
+            Toggle between side-by-side Split View and compact Unified Diff. View character-level color-coded insertions and deletions instantly as you type, before writing to disk.
           </p>
         </div>
 
-        <!-- Feature 4 -->
+        <!-- Feature 5: Presets Manager -->
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+          </div>
+          <h3 class="feature-title">Interactive Presets Manager</h3>
+          <p class="feature-desc">
+            Save, organize, and reload your favorite renaming recipes with 1 click. Create presets for photo organization, music discographies, TV series normalization, or code assets.
+          </p>
+        </div>
+
+        <!-- Feature 6: Live Search & Filtering -->
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/></svg>
+          </div>
+          <h3 class="feature-title">Live Search &amp; Status Filters</h3>
+          <p class="feature-desc">
+            Filter massive file lists in real time with quick status pills: All, Valid (green), Warnings (yellow), and Collisions (red). Immediately pinpoint and resolve problematic files.
+          </p>
+        </div>
+
+        <!-- Feature 7: Drag-to-Reorder Queue -->
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 9 2 12 5 15"/><polyline points="9 5 12 2 15 5"/><polyline points="15 19 12 22 9 19"/><polyline points="19 9 22 12 19 15"/><line x1="2" x2="22" y1="12" y2="12"/><line x1="12" x2="12" y1="2" y2="22"/></svg>
+          </div>
+          <h3 class="feature-title">Drag-to-Reorder Sequence Engine</h3>
+          <p class="feature-desc">
+            Manually drag rows in the file queue to reorder files before applying sequence numbering ({seq} or {seq:03d}). Perfect for sorting image chapters or scanned documents.
+          </p>
+        </div>
+
+        <!-- Feature 8: Audit History & Undo -->
         <div class="feature-card">
           <div class="feature-icon-wrapper">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -1048,18 +1214,18 @@
           </p>
         </div>
 
-        <!-- Feature 5 -->
+        <!-- Feature 9: Case & Separators -->
         <div class="feature-card">
           <div class="feature-icon-wrapper">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
           </div>
           <h3 class="feature-title">Case &amp; Separator Formatter</h3>
           <p class="feature-desc">
-            Standardize messy collections with lowercase, UPPERCASE, Title Case, camelCase, snake_case, and kebab-case. Clean spaces, dots, and hyphens into clean uniform separators.
+            Standardize messy collections with lowercase, UPPERCASE, Title Case, camelCase, snake_case, and kebab-case. Clean spaces, dots, and hyphens into uniform separators.
           </p>
         </div>
 
-        <!-- Feature 6 -->
+        <!-- Feature 10: Shell Integration -->
         <div class="feature-card">
           <div class="feature-icon-wrapper">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>
@@ -1069,11 +1235,33 @@
             Direct Windows shell integration. Right-click any folder or directory on your desktop to launch RenameSense with that folder instantly loaded. Supports multi-file drag-and-drop.
           </p>
         </div>
+
+        <!-- Feature 11: In-App Updates -->
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+          </div>
+          <h3 class="feature-title">In-App Auto Update Checker</h3>
+          <p class="feature-desc">
+            Built-in release verification connects directly to official GitHub releases to check for updates, verify signatures, and view release notes without opening a web browser.
+          </p>
+        </div>
+
+        <!-- Feature 12: Live Diagnostics -->
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="14" x="3" y="3" rx="2"/><line x1="7" x2="17" y1="8" y2="8"/><line x1="7" x2="13" y1="12" y2="12"/></svg>
+          </div>
+          <h3 class="feature-title">Live Diagnostics &amp; Redacted Logs</h3>
+          <p class="feature-desc">
+            Inspect active execution logs, WAL transaction journals, and system diagnostics with automatic regex redaction of any sensitive tokens or secrets.
+          </p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Architecture Section -->
+  <!-- Architecture & Safety Section -->
   <section id="architecture" class="section">
     <div class="container">
       <div class="section-header">
@@ -1125,7 +1313,7 @@
           </div>
           <h3 class="feature-title">Extended Win32 Paths</h3>
           <p class="feature-desc">
-            Transparent extended path standard handling (\\?\) handles deeply nested folder structures exceeding the legacy Windows 260-character MAX_PATH ceiling.
+            Transparent extended path handling (\\?\) handles deeply nested folder structures exceeding the legacy Windows 260-character MAX_PATH ceiling.
           </p>
         </div>
 
@@ -1165,6 +1353,12 @@
         </p>
       </div>
 
+      <!-- Mobile Swipe Hint -->
+      <div class="table-mobile-hint">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        <span>Swipe horizontally to compare features</span>
+      </div>
+
       <div class="table-container">
         <table class="compare-table">
           <thead>
@@ -1201,6 +1395,24 @@
               <td>Complex Syntax</td>
             </tr>
             <tr>
+              <td>AI Regex Assistant (Groq &amp; Gemini)</td>
+              <td class="compare-highlight"><span class="check-yes">&#10003; Built-In AI Assistant</span></td>
+              <td><span class="check-no">No</span></td>
+              <td><span class="check-no">No</span></td>
+            </tr>
+            <tr>
+              <td>Interactive Presets (Save &amp; Load)</td>
+              <td class="compare-highlight"><span class="check-yes">&#10003; 1-Click Workflow Presets</span></td>
+              <td><span class="check-no">No</span></td>
+              <td>Partial Config Files</td>
+            </tr>
+            <tr>
+              <td>Live Queue Status Filtering (Valid/Warn/Collisions)</td>
+              <td class="compare-highlight"><span class="check-yes">&#10003; Instant Filter Pills</span></td>
+              <td><span class="check-no">No</span></td>
+              <td><span class="check-no">No</span></td>
+            </tr>
+            <tr>
               <td>Windows Case-Only Rename Safety (NTFS/ReFS)</td>
               <td class="compare-highlight"><span class="check-yes">&#10003; Yes (2-Phase Staging)</span></td>
               <td>Can Cause Collisions</td>
@@ -1213,7 +1425,7 @@
               <td>Partial Warning</td>
             </tr>
             <tr>
-              <td>Windows Explorer Shell Right-Click Context Menu</td>
+              <td>Windows Explorer Shell Right-Click Menu</td>
               <td class="compare-highlight"><span class="check-yes">&#10003; Built-In</span></td>
               <td><span class="check-yes">&#10003; Built-In</span></td>
               <td>Manual Registry Script</td>
@@ -1261,7 +1473,7 @@
             What is the difference between the Setup Installer and Portable ZIP?
           </h3>
           <p class="faq-answer">
-            The Setup Installer (74.2 MB) installs per-user into your local application directory, creates Start Menu and Desktop shortcuts, and registers the Windows Explorer right-click menu. The Portable ZIP (106.4 MB) requires no installation: extract it to any folder or USB flash drive and run RenameSense.exe directly.
+            The Setup Installer (58.1 MB) installs per-user into your local application directory, creates Start Menu and Desktop shortcuts, and registers the Windows Explorer right-click menu. The Portable ZIP (79.4 MB) requires no installation: extract it to any folder or USB flash drive and run RenameSense.exe directly.
           </p>
         </div>
 
@@ -1291,6 +1503,17 @@
         <div class="faq-item">
           <h3 class="faq-question">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" x2="12.01" y1="17" y2="17"/></svg>
+            Does the AI Regex Assistant send my filenames to the cloud?
+          </h3>
+          <p class="faq-answer">
+            No. The AI Assistant only sends your written prompt instruction (e.g. &quot;extract year from brackets&quot;) to your selected AI provider (Groq or Gemini) using your own API key. Your local file names, paths, folder contents, and metadata are never uploaded or transmitted.
+          </p>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="faq-item">
+          <h3 class="faq-question">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" x2="12.01" y1="17" y2="17"/></svg>
             Does RenameSense require an internet connection or send telemetry?
           </h3>
           <p class="faq-answer">
@@ -1298,7 +1521,7 @@
           </p>
         </div>
 
-        <!-- FAQ 5 -->
+        <!-- FAQ 6 -->
         <div class="faq-item">
           <h3 class="faq-question">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" x2="12.01" y1="17" y2="17"/></svg>
@@ -1309,7 +1532,7 @@
           </p>
         </div>
 
-        <!-- FAQ 6 -->
+        <!-- FAQ 7 -->
         <div class="faq-item">
           <h3 class="faq-question">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" x2="12.01" y1="17" y2="17"/></svg>
@@ -1320,7 +1543,7 @@
           </p>
         </div>
 
-        <!-- FAQ 7 -->
+        <!-- FAQ 8 -->
         <div class="faq-item">
           <h3 class="faq-question">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" x2="12.01" y1="17" y2="17"/></svg>
@@ -1331,7 +1554,7 @@
           </p>
         </div>
 
-        <!-- FAQ 8 -->
+        <!-- FAQ 9 -->
         <div class="faq-item">
           <h3 class="faq-question">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" x2="12.01" y1="17" y2="17"/></svg>
@@ -1339,6 +1562,17 @@
           </h3>
           <p class="faq-answer">
             No. The installer installs per-user into your Windows user profile (%LOCALAPPDATA%\Programs\RenameSense). It never triggers Windows UAC administrator prompts. The portable version also runs without any administrative elevation.
+          </p>
+        </div>
+
+        <!-- FAQ 10 -->
+        <div class="faq-item">
+          <h3 class="faq-question">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" x2="12.01" y1="17" y2="17"/></svg>
+            Can I reorder files manually before applying sequential numbers?
+          </h3>
+          <p class="faq-answer">
+            Yes. RenameSense features a Drag-to-Reorder sequence engine. You can drag and drop rows in the file list to set the precise sequence order before generating {seq} or {seq:03d} numbering.
           </p>
         </div>
       </div>
@@ -1362,7 +1596,7 @@
           <span class="download-badge">Recommended</span>
           <div class="download-card-header">
             <h3 class="download-card-title">Windows Setup Installer</h3>
-            <div class="download-card-meta">RenameSense-3.0.0-Setup.exe &bull; 74.2 MB</div>
+            <div class="download-card-meta">RenameSense-3.0.0-Setup.exe &bull; 58.1 MB</div>
             <p class="download-card-desc">
               Recommended for primary workstations. Features automatic per-user setup and full Windows Explorer context menu integration.
             </p>
@@ -1387,7 +1621,7 @@
               <span>Download Setup Installer</span>
             </a>
             <div class="checksum-box">
-              SHA-256: 3EB8E830FF188A1F2A7D26BFA27F9562EA9BB9DB053615868DABED716A600137
+              SHA-256: 8B477D19F7D5F1ABA1D45D398842927FCCBAA5C7E58530CE547235A4C4C3D168
             </div>
           </div>
         </div>
@@ -1396,7 +1630,7 @@
         <div class="download-card">
           <div class="download-card-header">
             <h3 class="download-card-title">Portable Standalone Package</h3>
-            <div class="download-card-meta">RenameSense-3.0.0-Portable.zip &bull; 106.4 MB</div>
+            <div class="download-card-meta">RenameSense-3.0.0-Portable.zip &bull; 79.4 MB</div>
             <p class="download-card-desc">
               Standalone archive. Extract to any directory or USB flash drive and run RenameSense.exe directly without installation.
             </p>
@@ -1421,7 +1655,7 @@
               <span>Download Portable ZIP</span>
             </a>
             <div class="checksum-box">
-              SHA-256: 4D8E0F2E28EEF40E2361455DAE338DB14BE67BC9ADE4E79027C5D690E309D226
+              SHA-256: AF7C7CCFA93340826A09C331B80E0F8B1FC9FB09247D8C31A4A48B2C37A815AD
             </div>
           </div>
         </div>
@@ -1445,6 +1679,24 @@
       </div>
     </div>
   </footer>
+
+  <!-- Mobile Drawer Toggle Script -->
+  <script>
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileNavDrawer = document.getElementById('mobileNavDrawer');
+    if (mobileMenuBtn && mobileNavDrawer) {
+      mobileMenuBtn.addEventListener('click', () => {
+        const isOpen = mobileNavDrawer.classList.toggle('open');
+        mobileMenuBtn.setAttribute('aria-expanded', isOpen);
+      });
+      document.querySelectorAll('#mobileNavDrawer a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileNavDrawer.classList.remove('open');
+          mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+  </script>
 
 </body>
 </html>

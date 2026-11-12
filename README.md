@@ -20,8 +20,8 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/BeginnerAman/RenameSense/releases/download/v3.0.0/RenameSense-3.0.0-Setup.exe"><b>Download Setup Installer (74.2 MB)</b></a> | 
-  <a href="https://github.com/BeginnerAman/RenameSense/releases/download/v3.0.0/RenameSense-3.0.0-Portable.zip"><b>Download Portable Package (106.4 MB)</b></a> | 
+  <a href="https://github.com/BeginnerAman/RenameSense/releases/download/v3.0.0/RenameSense-3.0.0-Setup.exe"><b>Download Setup Installer (58.1 MB)</b></a> | 
+  <a href="https://github.com/BeginnerAman/RenameSense/releases/download/v3.0.0/RenameSense-3.0.0-Portable.zip"><b>Download Portable Package (79.4 MB)</b></a> | 
   <a href="https://beginneraman.github.io/RenameSense/"><b>Visit Official Website</b></a> | 
   <a href="LICENSE"><b>License Agreement</b></a>
 </p>
@@ -41,21 +41,27 @@ RenameSense is 100% free proprietary software for personal, organizational, and 
 ## 2. Key Highlights
 
 ### For Everyday Users
-* Simple 4-step workflow: Select or drop a folder, configure dynamic tokens, preview live diffs, and rename.
-* Dynamic template tags: Click to insert tokens like `{name}`, `{seq}`, `{date}`, `{parent}`, and `{cleaned}`.
+* Simple 4-step workflow: Select or drop a folder, configure dynamic tokens or ask AI, preview live diffs, and rename.
+* Dynamic template tags: Click to insert tokens like `{name}`, `{seq}`, `{seq:03d}`, `{date}`, `{parent}`, and `{cleaned}`.
 * Safe 1-click undo: Roll back any previous batch operation instantly from the persistent Audit History ledger.
 * Real-time preview diff: Inspect changes before writing a single byte to disk, with color-coded additions and deletions.
+* Interactive presets manager: Save, organize, and reload your favorite renaming workflows with 1 click.
+* Live search and quick filters: Instantly search file lists and filter by status (`All`, `Valid`, `Warnings`, `Collisions`).
+* Drag-to-reorder sequences: Reorder files manually in the list before generating sequential numbers.
 * Windows Explorer context menu: Right-click any folder or directory in Windows to open it directly in RenameSense.
 * Fluent dark and light interface: Native Windows 11 aesthetics with seamless theme switching and zero screen flicker.
 
 ### For Power Users and Technologists
 * Multi-stage sequential rule pipeline: Chain multiple find-and-replace rules where each step transforms the output of the prior step.
 * Full regular expressions: Capture groups (`$1`, `$2`), lookaheads, case sensitivity flags, and live syntax validation.
+* AI Regex and Rename Assistant: Describe complex renaming patterns in natural language. Powered by Groq (Llama-3.3-70B) and Google Gemini with 100% local key storage and zero file content telemetry.
 * Write-Ahead Log (WAL) engine: Durable JSONL transaction journal records atomic rename states for guaranteed recovery.
 * Collision and conflict detection: Proactively prevents overwrites, duplicate targets, invalid Win32 characters, and reserved system names.
 * Case-only rename resolution: Two-phase intermediate staging (`file.txt` to temporary UUID to `FILE.TXT`) handles Windows case-insensitive filesystems cleanly.
 * Extended length path support: Transparent Win32 extended path prefixing (`\\?\`) handles deep directory paths exceeding the traditional 260-character limit.
 * High-volume performance: Virtualized table rendering smoothly handles directories with over 50,000 files at 60 frames per second.
+* In-app update engine: Directly verify signatures, check for official GitHub releases, and inspect changelogs.
+* Live diagnostics and redacted logs: Real-time execution logs and WAL journal inspection with automatic scrubbing of sensitive tokens.
 
 ---
 
@@ -78,6 +84,12 @@ Chain multiple rules sequentially:
 * Rule 2: Remove unwanted substrings or replace separators.
 * Rule 3: Insert dynamic tokens into replacement strings.
 
+### AI Regex and Rename Assistant
+Integrated artificial intelligence assistant:
+* Natural language prompt: Type what you want to achieve (e.g., "Strip resolution tags like [1080p] and audio codecs", "Extract release year inside parenthesis into prefix").
+* Provider choice: Supports Groq (Llama-3.3-70B-Versatile) and Google Gemini (gemini-1.5-flash / gemini-2.0-flash).
+* Zero telemetry guarantee: API calls strictly send the prompt instruction. File paths, folder contents, and metadata are never uploaded.
+
 ### Case and Separator Formatting
 Standardize naming across file collections:
 * Transformations: lowercase, UPPERCASE, Title Case, camelCase, snake_case, and kebab-case.
@@ -92,6 +104,7 @@ Standardize naming across file collections:
 * Staged case changes: Case-only renames on NTFS and ReFS filesystems use deterministic two-phase staging to eliminate file collision.
 * Transactional rollbacks: All batch operations are written to `%LOCALAPPDATA%\RenameSense\history\transactions.jsonl` prior to disk execution.
 * Reserved name protection: Automatically flags illegal characters (`<`, `>`, `:`, `"`, `/`, `\`, `|`, `?`, `*`) and Windows reserved device names (`CON`, `PRN`, `AUX`, `NUL`, `COM1-9`, `LPT1-9`).
+* Extended paths: Fully compatible with long paths beyond the legacy Win32 260-character `MAX_PATH` limit.
 
 ---
 
@@ -100,9 +113,13 @@ Standardize naming across file collections:
 | Shortcut | Action | Description |
 |---|---|---|
 | `F2` | Focus Path Input | Jump cursor to the folder path input bar |
+| `F5` | Refresh Queue | Re-scan current directory and recalculate previews |
 | `Enter` | Scan Folder | Trigger directory scan when focused on path input |
 | `Ctrl + Enter` | Execute Batch | Apply renames to all selected files |
 | `Ctrl + Z` | Undo Last Batch | Roll back the most recent batch operation |
+| `Ctrl + F` | Focus Filter | Jump to live queue search bar |
+| `Ctrl + O` | Add Files | Open file selection dialog |
+| `Ctrl + Shift + O` | Add Folder | Open folder selection dialog |
 | `Ctrl + D` | Toggle Theme | Switch between Dark and Light Fluent UI modes |
 | `Ctrl + ?` | Shortcuts Modal | View complete keyboard shortcuts guide |
 | `Esc` | Close Modal | Dismiss open dialogs or overlays |
@@ -115,7 +132,7 @@ Standardize naming across file collections:
 * Architecture: x86-64 compatible processor.
 * Runtime: Microsoft Edge WebView2 Runtime (pre-installed on Windows 10 and Windows 11).
 * Memory: 4 GB RAM minimum (8 GB recommended for 50,000+ file batches).
-* Disk Space: 250 MB free disk space for portable extraction (150 MB for installer).
+* Disk Space: 180 MB free disk space for portable extraction (70 MB for installer).
 * Permissions: Standard user account (no administrator rights required).
 
 ---
@@ -126,15 +143,15 @@ RenameSense is distributed in two official formats:
 
 ### Windows Setup Installer (Recommended)
 * File: [RenameSense-3.0.0-Setup.exe](https://github.com/BeginnerAman/RenameSense/releases/download/v3.0.0/RenameSense-3.0.0-Setup.exe)
-* Size: 74,259,974 bytes (~74.2 MB)
+* Size: 60,908,099 bytes (~58.1 MB)
 * Features: Installs per-user without UAC administrator prompts, creates Desktop and Start Menu shortcuts, and integrates into the Windows Explorer right-click context menu.
-* SHA-256 Checksum: `3EB8E830FF188A1F2A7D26BFA27F9562EA9BB9DB053615868DABED716A600137`
+* SHA-256 Checksum: `8B477D19F7D5F1ABA1D45D398842927FCCBAA5C7E58530CE547235A4C4C3D168`
 
 ### Portable Package (No Installation Required)
 * File: [RenameSense-3.0.0-Portable.zip](https://github.com/BeginnerAman/RenameSense/releases/download/v3.0.0/RenameSense-3.0.0-Portable.zip)
-* Size: 111,594,747 bytes (~106.4 MB)
+* Size: 83,291,207 bytes (~79.4 MB)
 * Features: Standalone ZIP archive. Extract anywhere (including USB flash drives or external drives) and launch `RenameSense.exe` directly without installation.
-* SHA-256 Checksum: `4D8E0F2E28EEF40E2361455DAE338DB14BE67BC9ADE4E79027C5D690E309D226`
+* SHA-256 Checksum: `AF7C7CCFA93340826A09C331B80E0F8B1FC9FB09247D8C31A4A48B2C37A815AD`
 
 ---
 
