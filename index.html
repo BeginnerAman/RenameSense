@@ -94,6 +94,7 @@
       width: 100%;
       max-width: 100vw;
       position: relative;
+      padding-top: 64px; /* Fixed navbar height offset */
       -webkit-font-smoothing: antialiased;
     }
 
@@ -106,13 +107,16 @@
       box-sizing: border-box;
     }
 
-    /* Navigation Bar */
+    /* Navigation Bar - 100% Fixed Pinned to Top */
     .navbar {
-      position: sticky;
+      position: fixed;
       top: 0;
-      z-index: 100;
-      background: rgba(13, 17, 23, 0.92);
-      backdrop-filter: blur(12px);
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(13, 17, 23, 0.94);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border-color);
       height: 64px;
       display: flex;
@@ -249,6 +253,7 @@
       right: 0;
       background: rgba(13, 17, 23, 0.98);
       backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border-color);
       padding: 16px 20px 22px;
       z-index: 999;
@@ -284,9 +289,9 @@
       scroll-margin-top: 76px;
     }
 
-    /* Hero Section */
+    /* Hero Section - Streamlined First-Fold Height */
     .hero {
-      padding: 64px 0 48px;
+      padding: 38px 0 32px;
       text-align: center;
       position: relative;
     }
@@ -295,14 +300,14 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 6px 14px;
+      padding: 5px 14px;
       border-radius: 20px;
       background: rgba(2, 132, 199, 0.12);
       border: 1px solid rgba(56, 189, 248, 0.3);
       color: #38bdf8;
-      font-size: 13px;
+      font-size: 12.5px;
       font-weight: 500;
-      margin-bottom: 24px;
+      margin-bottom: 16px;
     }
 
     .pill-text-desktop {
@@ -314,23 +319,23 @@
     }
 
     .hero-title {
-      font-size: 48px;
+      font-size: 42px;
       font-weight: 800;
-      line-height: 1.15;
-      letter-spacing: -1px;
-      max-width: 900px;
-      margin: 0 auto 20px;
+      line-height: 1.18;
+      letter-spacing: -0.8px;
+      max-width: 880px;
+      margin: 0 auto 14px;
       background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
     .hero-subtitle {
-      font-size: 18px;
+      font-size: 16px;
       color: var(--text-muted);
-      max-width: 760px;
-      margin: 0 auto 32px;
-      line-height: 1.6;
+      max-width: 720px;
+      margin: 0 auto 20px;
+      line-height: 1.55;
     }
 
     .hero-actions {
@@ -339,7 +344,7 @@
       justify-content: center;
       gap: 16px;
       flex-wrap: wrap;
-      margin-bottom: 20px;
+      margin-bottom: 14px;
     }
 
     .btn-download-primary {
@@ -348,19 +353,19 @@
       gap: 10px;
       background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
       color: #ffffff;
-      padding: 14px 28px;
+      padding: 12px 26px;
       border-radius: 8px;
-      font-size: 15px;
+      font-size: 14.5px;
       font-weight: 600;
       text-decoration: none;
-      box-shadow: 0 4px 20px var(--accent-glow);
+      box-shadow: 0 4px 18px var(--accent-glow);
       transition: all 0.2s ease;
     }
 
     .btn-download-primary:hover {
       background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
       transform: translateY(-2px);
-      box-shadow: 0 6px 24px rgba(2, 132, 199, 0.45);
+      box-shadow: 0 6px 22px rgba(2, 132, 199, 0.45);
     }
 
     .btn-download-secondary {
@@ -370,9 +375,9 @@
       background: var(--bg-card);
       border: 1px solid var(--border-color);
       color: var(--text-main);
-      padding: 14px 24px;
+      padding: 12px 22px;
       border-radius: 8px;
-      font-size: 15px;
+      font-size: 14.5px;
       font-weight: 500;
       text-decoration: none;
       transition: all 0.2s ease;
@@ -385,7 +390,7 @@
     }
 
     .hero-info-label {
-      font-size: 13px;
+      font-size: 12.5px;
       color: var(--text-dim);
     }
 
@@ -397,12 +402,12 @@
       display: none;
     }
 
-    /* Hero Performance Metrics Strip */
+    /* Hero Performance Metrics Strip - Fits comfortably in first fold */
     .hero-metrics {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 16px;
-      margin: 36px auto 0;
+      margin: 22px auto 0;
       max-width: 1040px;
       text-align: left;
     }
@@ -411,7 +416,7 @@
       background: rgba(22, 27, 34, 0.65);
       border: 1px solid var(--border-color);
       border-radius: 10px;
-      padding: 16px 18px;
+      padding: 14px 16px;
       transition: all 0.2s ease;
       backdrop-filter: blur(8px);
     }
@@ -422,18 +427,18 @@
     }
 
     .metric-val {
-      font-size: 17px;
+      font-size: 16px;
       font-weight: 800;
       color: #38bdf8;
       letter-spacing: -0.3px;
-      margin-bottom: 4px;
+      margin-bottom: 3px;
       display: flex;
       align-items: center;
       gap: 8px;
     }
 
     .metric-label {
-      font-size: 12.5px;
+      font-size: 12px;
       color: var(--text-muted);
       line-height: 1.45;
     }
@@ -456,14 +461,14 @@
 
     /* Section Styling */
     .section {
-      padding: 72px 0;
+      padding: 68px 0;
       border-top: 1px solid var(--border-color);
     }
 
     .section-header {
       text-align: center;
       max-width: 760px;
-      margin: 0 auto 52px;
+      margin: 0 auto 48px;
     }
 
     .section-badge {
@@ -477,15 +482,15 @@
     }
 
     .section-title {
-      font-size: 34px;
+      font-size: 32px;
       font-weight: 800;
       letter-spacing: -0.5px;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
       color: var(--text-main);
     }
 
     .section-desc {
-      font-size: 16px;
+      font-size: 15.5px;
       color: var(--text-muted);
       line-height: 1.6;
     }
@@ -502,7 +507,7 @@
       background: var(--bg-card);
       border: 1px solid var(--border-color);
       border-radius: 12px;
-      padding: 26px 20px;
+      padding: 24px 20px;
       position: relative;
       transition: transform 0.2s ease, border-color 0.2s ease;
     }
@@ -548,9 +553,9 @@
     }
 
     .step-title {
-      font-size: 17px;
+      font-size: 16.5px;
       font-weight: 700;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       color: var(--text-main);
     }
 
@@ -564,14 +569,14 @@
     .feature-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      gap: 22px;
     }
 
     .feature-card {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
       border-radius: 12px;
-      padding: 26px;
+      padding: 24px;
       transition: transform 0.2s ease, border-color 0.2s ease;
     }
 
@@ -593,7 +598,7 @@
     }
 
     .feature-title {
-      font-size: 17px;
+      font-size: 16.5px;
       font-weight: 700;
       margin-bottom: 8px;
       color: var(--text-main);
@@ -605,22 +610,20 @@
       line-height: 1.55;
     }
 
-    /* Desktop Comparison Table */
-    .compare-desktop-view {
-      display: block;
-    }
-
-    .compare-mobile-view {
-      display: none;
-    }
-
+    /* Comparison Table Container with Isolated Horizontal Scroll */
     .table-container {
       width: 100%;
+      max-width: 100%;
       overflow-x: auto;
+      overflow-y: hidden;
       -webkit-overflow-scrolling: touch;
+      overscroll-behavior-x: contain;
+      touch-action: pan-x pan-y;
       border: 1px solid var(--border-color);
       border-radius: 10px;
       background: var(--bg-card);
+      box-sizing: border-box;
+      position: relative;
     }
 
     .compare-table {
@@ -631,7 +634,7 @@
 
     .compare-table th,
     .compare-table td {
-      padding: 16px 20px;
+      padding: 15px 18px;
       font-size: 14px;
       border-bottom: 1px solid var(--border-color);
       white-space: nowrap;
@@ -662,91 +665,24 @@
       color: var(--text-dim);
     }
 
-    /* Mobile Comparison Cards Matrix */
-    .compare-mobile-cards {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      width: 100%;
-    }
-
-    .compare-mobile-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 10px;
-      padding: 14px 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .compare-mobile-card.highlight {
-      border-color: rgba(56, 189, 248, 0.35);
-      background: linear-gradient(180deg, #161b22 0%, #12161f 100%);
-    }
-
-    .compare-mobile-title {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--text-main);
-    }
-
-    .compare-mobile-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
-
-    .compare-mobile-col {
-      background: rgba(13, 17, 23, 0.6);
-      border: 1px solid rgba(240, 246, 252, 0.08);
-      border-radius: 8px;
-      padding: 8px 10px;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .compare-mobile-col.primary {
-      background: rgba(2, 132, 199, 0.1);
-      border-color: rgba(56, 189, 248, 0.3);
-    }
-
-    .compare-col-name {
-      font-size: 10.5px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      color: var(--text-dim);
-    }
-
-    .compare-mobile-col.primary .compare-col-name {
-      color: #38bdf8;
-    }
-
-    .compare-col-val {
-      font-size: 12px;
-      line-height: 1.35;
-    }
-
     /* FAQ Section */
     .faq-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
+      gap: 22px;
     }
 
     .faq-item {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
       border-radius: 10px;
-      padding: 24px;
+      padding: 22px;
       overflow-wrap: break-word;
       word-break: break-word;
     }
 
     .faq-question {
-      font-size: 16px;
+      font-size: 15.5px;
       font-weight: 700;
       color: var(--text-main);
       margin-bottom: 10px;
@@ -763,7 +699,7 @@
     }
 
     .faq-answer {
-      font-size: 14px;
+      font-size: 13.5px;
       color: var(--text-muted);
       line-height: 1.6;
       padding-left: 26px;
@@ -782,7 +718,7 @@
       background: var(--bg-card);
       border: 1px solid var(--border-color);
       border-radius: 14px;
-      padding: 32px;
+      padding: 30px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -840,7 +776,7 @@
 
     .download-features-list {
       list-style: none;
-      margin-bottom: 28px;
+      margin-bottom: 26px;
     }
 
     .download-features-list li {
@@ -907,7 +843,7 @@
     /* Responsive Queries */
     @media (max-width: 992px) {
       .hero-title {
-        font-size: 38px;
+        font-size: 36px;
       }
       .steps-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -921,19 +857,17 @@
     }
 
     @media (max-width: 768px) {
-      html, body {
-        overflow-x: hidden !important;
-        width: 100% !important;
-        max-width: 100vw !important;
+      body {
+        padding-top: 60px !important;
+      }
+      .navbar {
+        height: 60px;
       }
       .container {
         padding: 0 16px !important;
         width: 100% !important;
         max-width: 100vw !important;
         box-sizing: border-box !important;
-      }
-      .navbar {
-        height: 60px;
       }
       .brand-badge {
         display: none !important;
@@ -948,11 +882,11 @@
         display: flex !important;
       }
       .hero {
-        padding: 36px 0 28px;
+        padding: 30px 0 24px;
       }
       .hero-pill {
         padding: 5px 12px;
-        margin-bottom: 18px;
+        margin-bottom: 14px;
         font-size: 11.5px;
         white-space: nowrap;
         max-width: 90vw;
@@ -965,14 +899,14 @@
         display: inline !important;
       }
       .hero-title {
-        font-size: 26px;
+        font-size: 25px;
         letter-spacing: -0.5px;
         line-height: 1.25;
-        margin-bottom: 14px;
+        margin-bottom: 12px;
       }
       .hero-subtitle {
         font-size: 14px;
-        margin-bottom: 22px;
+        margin-bottom: 20px;
         line-height: 1.5;
       }
       .hero-actions-desktop {
@@ -983,7 +917,7 @@
         flex-direction: column;
         align-items: center;
         gap: 12px;
-        margin-bottom: 18px;
+        margin-bottom: 16px;
       }
       .btn-mobile-github {
         display: inline-flex;
@@ -993,9 +927,9 @@
         background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
         border: 1px solid rgba(56, 189, 248, 0.4);
         color: #f0f6fc;
-        padding: 13px 24px;
+        padding: 12px 22px;
         border-radius: 8px;
-        font-size: 14.5px;
+        font-size: 14px;
         font-weight: 600;
         text-decoration: none;
         width: 100%;
@@ -1026,14 +960,14 @@
       .hero-metrics {
         grid-template-columns: repeat(2, 1fr) !important;
         gap: 8px !important;
-        margin-top: 22px !important;
+        margin-top: 18px !important;
       }
       .metric-card {
         padding: 12px 14px !important;
         border-radius: 8px !important;
       }
       .metric-val {
-        font-size: 15px !important;
+        font-size: 14.5px !important;
         margin-bottom: 2px !important;
       }
       .metric-label-desktop {
@@ -1075,12 +1009,36 @@
         font-size: 13px !important;
         line-height: 1.45 !important;
       }
-      .compare-desktop-view {
-        display: none !important;
+
+      /* Mobile Sticky First-Column Comparison Table */
+      .compare-table th,
+      .compare-table td {
+        padding: 11px 13px !important;
+        font-size: 12.5px !important;
       }
-      .compare-mobile-view {
-        display: block !important;
+      .compare-table th:first-child,
+      .compare-table td:first-child {
+        position: sticky !important;
+        left: 0 !important;
+        z-index: 2 !important;
+        background: #111419 !important;
+        min-width: 140px !important;
+        max-width: 150px !important;
+        white-space: normal !important;
+        border-right: 1px solid var(--border-color) !important;
+        box-shadow: 2px 0 6px rgba(0, 0, 0, 0.45) !important;
+        line-height: 1.3 !important;
       }
+      .compare-table th:first-child {
+        z-index: 3 !important;
+        background: #161b22 !important;
+      }
+      .compare-table th:not(:first-child),
+      .compare-table td:not(:first-child) {
+        min-width: 120px !important;
+        white-space: nowrap !important;
+      }
+
       .faq-grid {
         grid-template-columns: 1fr;
         gap: 12px;
@@ -1107,19 +1065,19 @@
         font-size: 18px !important;
       }
       .section {
-        padding: 50px 0;
+        padding: 46px 0;
       }
       .section-header {
-        margin-bottom: 36px;
+        margin-bottom: 32px;
       }
       .section-title {
-        font-size: 25px;
+        font-size: 24px;
       }
       .section-desc {
         font-size: 13.5px;
       }
       .footer {
-        padding: 32px 0;
+        padding: 30px 0;
       }
       .footer-inner {
         flex-direction: column;
@@ -1134,7 +1092,7 @@
 </head>
 <body>
 
-  <!-- Navigation Bar -->
+  <!-- Navigation Bar - 100% Fixed Pinned to Top -->
   <header class="navbar">
     <div class="container navbar-inner">
       <a href="#" class="brand">
@@ -1233,48 +1191,48 @@
         <span class="hero-info-mobile">Official Release v3.0.0 &bull; Free Personal &amp; Commercial Use</span>
       </div>
 
-      <!-- Hero Metrics Strip (Clean, concise micro-stats on mobile) -->
+      <!-- Hero Metrics Strip - Perfectly fits on 1080p laptop displays -->
       <div class="hero-metrics">
         <div class="metric-card">
           <div class="metric-val">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
             <span>50,000+</span>
           </div>
           <div class="metric-label">
-            <span class="metric-label-desktop">High-throughput virtualized rendering handles massive directories under 10ms.</span>
+            <span class="metric-label-desktop">Virtualized rendering handles massive directories under 10ms.</span>
             <span class="metric-label-mobile">Files per batch</span>
           </div>
         </div>
 
         <div class="metric-card">
           <div class="metric-val">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             <span>Atomic WAL</span>
           </div>
           <div class="metric-label">
-            <span class="metric-label-desktop">Durable Write-Ahead Logging records transaction intent before touching disk.</span>
+            <span class="metric-label-desktop">Durable write-ahead logs record intent before touching disk.</span>
             <span class="metric-label-mobile">Zero data loss</span>
           </div>
         </div>
 
         <div class="metric-card">
           <div class="metric-val">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
             <span>1-Click</span>
           </div>
           <div class="metric-label">
-            <span class="metric-label-desktop">Instant full batch rollback restores original names even after computer restarts.</span>
+            <span class="metric-label-desktop">Instant rollback restores original names after computer restarts.</span>
             <span class="metric-label-mobile">Instant undo</span>
           </div>
         </div>
 
         <div class="metric-card">
           <div class="metric-val">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
             <span>100% Offline</span>
           </div>
           <div class="metric-label">
-            <span class="metric-label-desktop">Zero cloud calls, zero analytics tracking, and zero telemetry packets.</span>
+            <span class="metric-label-desktop">Zero cloud calls, zero analytics, and zero telemetry packets.</span>
             <span class="metric-label-mobile">Zero telemetry</span>
           </div>
         </div>
@@ -1581,7 +1539,7 @@
     </div>
   </section>
 
-  <!-- Comparison Section -->
+  <!-- Comparison Section - Authentic Side-by-Side Table with Isolated Scroll -->
   <section id="comparison" class="section">
     <div class="container">
       <div class="section-header">
@@ -1592,240 +1550,97 @@
         </p>
       </div>
 
-      <!-- Desktop Table View -->
-      <div class="compare-desktop-view">
-        <div class="table-container">
-          <table class="compare-table">
-            <thead>
-              <tr>
-                <th style="width: 35%;">Capability</th>
-                <th style="width: 25%;" class="compare-highlight">RenameSense v3.0.0</th>
-                <th style="width: 20%;">PowerToys PowerRename</th>
-                <th style="width: 20%;">Legacy Bulk Renamers</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Atomic Write-Ahead Log (WAL) Journal</td>
-                <td class="compare-highlight"><span class="check-yes">&#10003; Included (100% Durable)</span></td>
-                <td><span class="check-no">No</span></td>
-                <td><span class="check-no">No</span></td>
-              </tr>
-              <tr>
-                <td>1-Click Full Batch Rollback &amp; Audit History</td>
-                <td class="compare-highlight"><span class="check-yes">&#10003; Yes (Persistent Ledger)</span></td>
-                <td>Basic Explorer Undo</td>
-                <td><span class="check-no">Unreliable / None</span></td>
-              </tr>
-              <tr>
-                <td>Real-Time Dual Diff Modes (Split &amp; Unified)</td>
-                <td class="compare-highlight"><span class="check-yes">&#10003; Yes (Character-Level)</span></td>
-                <td>Basic List Diff</td>
-                <td><span class="check-no">None</span></td>
-              </tr>
-              <tr>
-                <td>Sequential Multi-Stage Rule Pipeline</td>
-                <td class="compare-highlight"><span class="check-yes">&#10003; Yes (Chained Rules)</span></td>
-                <td><span class="check-no">Single Rule Only</span></td>
-                <td>Complex Syntax</td>
-              </tr>
-              <tr>
-                <td>AI Regex Assistant (Groq &amp; Gemini)</td>
-                <td class="compare-highlight"><span class="check-yes">&#10003; Built-In AI Assistant</span></td>
-                <td><span class="check-no">No</span></td>
-                <td><span class="check-no">No</span></td>
-              </tr>
-              <tr>
-                <td>Interactive Presets (Save &amp; Load)</td>
-                <td class="compare-highlight"><span class="check-yes">&#10003; 1-Click Workflow Presets</span></td>
-                <td><span class="check-no">No</span></td>
-                <td>Partial Config Files</td>
-              </tr>
-              <tr>
-                <td>Live Queue Status Filtering (Valid/Warn/Collisions)</td>
-                <td class="compare-highlight"><span class="check-yes">&#10003; Instant Filter Pills</span></td>
-                <td><span class="check-no">No</span></td>
-                <td><span class="check-no">No</span></td>
-              </tr>
-              <tr>
-                <td>Windows Case-Only Rename Safety (NTFS/ReFS)</td>
-                <td class="compare-highlight"><span class="check-yes">&#10003; Yes (2-Phase Staging)</span></td>
-                <td>Can Cause Collisions</td>
-                <td><span class="check-no">Manual Staging Required</span></td>
-              </tr>
-              <tr>
-                <td>Pre-Flight Win32 Collision Shield</td>
-                <td class="compare-highlight"><span class="check-yes">&#10003; Yes (Full Validation)</span></td>
-                <td>Basic Warning</td>
-                <td>Partial Warning</td>
-              </tr>
-              <tr>
-                <td>Windows Explorer Shell Right-Click Menu</td>
-                <td class="compare-highlight"><span class="check-yes">&#10003; Built-In</span></td>
-                <td><span class="check-yes">&#10003; Built-In</span></td>
-                <td>Manual Registry Script</td>
-              </tr>
-              <tr>
-                <td>Portable Standalone (No-Install) Option</td>
-                <td class="compare-highlight"><span class="check-yes">&#10003; Official ZIP Archive</span></td>
-                <td><span class="check-no">Installer Only</span></td>
-                <td>Varies</td>
-              </tr>
-              <tr>
-                <td>Modern Windows 11 Fluent Interface</td>
-                <td class="compare-highlight"><span class="check-yes">&#10003; Yes (Dark &amp; Light)</span></td>
-                <td>System Standard</td>
-                <td><span class="check-no">Outdated Win32 (XP Era)</span></td>
-              </tr>
-              <tr>
-                <td>100% Offline &amp; Zero Cloud Telemetry</td>
-                <td class="compare-highlight"><span class="check-yes">&#10003; Zero Telemetry</span></td>
-                <td>Telemetry Enabled</td>
-                <td>Varies</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- Mobile Comparison Cards Matrix (Zero Horizontal Overflow, 100% Readable) -->
-      <div class="compare-mobile-view">
-        <div class="compare-mobile-cards">
-          <!-- Card 1 -->
-          <div class="compare-mobile-card highlight">
-            <div class="compare-mobile-title">Atomic Write-Ahead Log (WAL) Journal</div>
-            <div class="compare-mobile-row">
-              <div class="compare-mobile-col primary">
-                <span class="compare-col-name">RenameSense</span>
-                <span class="compare-col-val check-yes">&#10003; 100% Durable</span>
-              </div>
-              <div class="compare-mobile-col">
-                <span class="compare-col-name">Other Tools</span>
-                <span class="compare-col-val check-no">&#10005; None</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 2 -->
-          <div class="compare-mobile-card highlight">
-            <div class="compare-mobile-title">1-Click Full Batch Rollback &amp; Audit History</div>
-            <div class="compare-mobile-row">
-              <div class="compare-mobile-col primary">
-                <span class="compare-col-name">RenameSense</span>
-                <span class="compare-col-val check-yes">&#10003; Persistent Ledger</span>
-              </div>
-              <div class="compare-mobile-col">
-                <span class="compare-col-name">Other Tools</span>
-                <span class="compare-col-val check-no">&#10005; Unreliable / None</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 3 -->
-          <div class="compare-mobile-card">
-            <div class="compare-mobile-title">Real-Time Dual Diff Modes (Split &amp; Unified)</div>
-            <div class="compare-mobile-row">
-              <div class="compare-mobile-col primary">
-                <span class="compare-col-name">RenameSense</span>
-                <span class="compare-col-val check-yes">&#10003; Character-Level</span>
-              </div>
-              <div class="compare-mobile-col">
-                <span class="compare-col-name">Other Tools</span>
-                <span class="compare-col-val check-no">&#10005; Basic List Only</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 4 -->
-          <div class="compare-mobile-card highlight">
-            <div class="compare-mobile-title">AI Regex Assistant (Groq &amp; Gemini)</div>
-            <div class="compare-mobile-row">
-              <div class="compare-mobile-col primary">
-                <span class="compare-col-name">RenameSense</span>
-                <span class="compare-col-val check-yes">&#10003; Built-In AI</span>
-              </div>
-              <div class="compare-mobile-col">
-                <span class="compare-col-name">Other Tools</span>
-                <span class="compare-col-val check-no">&#10005; None</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 5 -->
-          <div class="compare-mobile-card">
-            <div class="compare-mobile-title">Sequential Multi-Stage Rule Pipeline</div>
-            <div class="compare-mobile-row">
-              <div class="compare-mobile-col primary">
-                <span class="compare-col-name">RenameSense</span>
-                <span class="compare-col-val check-yes">&#10003; Chained Rules</span>
-              </div>
-              <div class="compare-mobile-col">
-                <span class="compare-col-name">Other Tools</span>
-                <span class="compare-col-val check-no">&#10005; Single Rule Only</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 6 -->
-          <div class="compare-mobile-card">
-            <div class="compare-mobile-title">Interactive Workflow Presets</div>
-            <div class="compare-mobile-row">
-              <div class="compare-mobile-col primary">
-                <span class="compare-col-name">RenameSense</span>
-                <span class="compare-col-val check-yes">&#10003; 1-Click Presets</span>
-              </div>
-              <div class="compare-mobile-col">
-                <span class="compare-col-name">Other Tools</span>
-                <span class="compare-col-val check-no">&#10005; None / Inflexible</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 7 -->
-          <div class="compare-mobile-card highlight">
-            <div class="compare-mobile-title">Windows Case-Only Rename Safety (NTFS)</div>
-            <div class="compare-mobile-row">
-              <div class="compare-mobile-col primary">
-                <span class="compare-col-name">RenameSense</span>
-                <span class="compare-col-val check-yes">&#10003; 2-Phase Staging</span>
-              </div>
-              <div class="compare-mobile-col">
-                <span class="compare-col-name">Other Tools</span>
-                <span class="compare-col-val check-no">&#10005; File Collisions</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 8 -->
-          <div class="compare-mobile-card">
-            <div class="compare-mobile-title">Pre-Flight Win32 Collision Shield</div>
-            <div class="compare-mobile-row">
-              <div class="compare-mobile-col primary">
-                <span class="compare-col-name">RenameSense</span>
-                <span class="compare-col-val check-yes">&#10003; Full Shield</span>
-              </div>
-              <div class="compare-mobile-col">
-                <span class="compare-col-name">Other Tools</span>
-                <span class="compare-col-val check-no">&#10005; Partial / None</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 9 -->
-          <div class="compare-mobile-card">
-            <div class="compare-mobile-title">100% Offline &amp; Zero Cloud Telemetry</div>
-            <div class="compare-mobile-row">
-              <div class="compare-mobile-col primary">
-                <span class="compare-col-name">RenameSense</span>
-                <span class="compare-col-val check-yes">&#10003; 0 Telemetry</span>
-              </div>
-              <div class="compare-mobile-col">
-                <span class="compare-col-name">Other Tools</span>
-                <span class="compare-col-val check-no">&#10005; Telemetry Active</span>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="table-container">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th style="width: 35%;">Capability</th>
+              <th style="width: 25%;" class="compare-highlight">RenameSense v3.0.0</th>
+              <th style="width: 20%;">PowerToys PowerRename</th>
+              <th style="width: 20%;">Legacy Bulk Renamers</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Atomic Write-Ahead Log (WAL) Journal</td>
+              <td class="compare-highlight"><span class="check-yes">&#10003; Included (100% Durable)</span></td>
+              <td><span class="check-no">No</span></td>
+              <td><span class="check-no">No</span></td>
+            </tr>
+            <tr>
+              <td>1-Click Full Batch Rollback &amp; Audit History</td>
+              <td class="compare-highlight"><span class="check-yes">&#10003; Yes (Persistent Ledger)</span></td>
+              <td>Basic Explorer Undo</td>
+              <td><span class="check-no">Unreliable / None</span></td>
+            </tr>
+            <tr>
+              <td>Real-Time Dual Diff Modes (Split &amp; Unified)</td>
+              <td class="compare-highlight"><span class="check-yes">&#10003; Yes (Character-Level)</span></td>
+              <td>Basic List Diff</td>
+              <td><span class="check-no">None</span></td>
+            </tr>
+            <tr>
+              <td>Sequential Multi-Stage Rule Pipeline</td>
+              <td class="compare-highlight"><span class="check-yes">&#10003; Yes (Chained Rules)</span></td>
+              <td><span class="check-no">Single Rule Only</span></td>
+              <td>Complex Syntax</td>
+            </tr>
+            <tr>
+              <td>AI Regex Assistant (Groq &amp; Gemini)</td>
+              <td class="compare-highlight"><span class="check-yes">&#10003; Built-In AI Assistant</span></td>
+              <td><span class="check-no">No</span></td>
+              <td><span class="check-no">No</span></td>
+            </tr>
+            <tr>
+              <td>Interactive Presets (Save &amp; Load)</td>
+              <td class="compare-highlight"><span class="check-yes">&#10003; 1-Click Workflow Presets</span></td>
+              <td><span class="check-no">No</span></td>
+              <td>Partial Config Files</td>
+            </tr>
+            <tr>
+              <td>Live Queue Status Filtering (Valid/Warn/Collisions)</td>
+              <td class="compare-highlight"><span class="check-yes">&#10003; Instant Filter Pills</span></td>
+              <td><span class="check-no">No</span></td>
+              <td><span class="check-no">No</span></td>
+            </tr>
+            <tr>
+              <td>Windows Case-Only Rename Safety (NTFS/ReFS)</td>
+              <td class="compare-highlight"><span class="check-yes">&#10003; Yes (2-Phase Staging)</span></td>
+              <td>Can Cause Collisions</td>
+              <td><span class="check-no">Manual Staging Required</span></td>
+            </tr>
+            <tr>
+              <td>Pre-Flight Win32 Collision Shield</td>
+              <td class="compare-highlight"><span class="check-yes">&#10003; Yes (Full Validation)</span></td>
+              <td>Basic Warning</td>
+              <td>Partial Warning</td>
+            </tr>
+            <tr>
+              <td>Windows Explorer Shell Right-Click Menu</td>
+              <td class="compare-highlight"><span class="check-yes">&#10003; Built-In</span></td>
+              <td><span class="check-yes">&#10003; Built-In</span></td>
+              <td>Manual Registry Script</td>
+            </tr>
+            <tr>
+              <td>Portable Standalone (No-Install) Option</td>
+              <td class="compare-highlight"><span class="check-yes">&#10003; Official ZIP Archive</span></td>
+              <td><span class="check-no">Installer Only</span></td>
+              <td>Varies</td>
+            </tr>
+            <tr>
+              <td>Modern Windows 11 Fluent Interface</td>
+              <td class="compare-highlight"><span class="check-yes">&#10003; Yes (Dark &amp; Light)</span></td>
+              <td>System Standard</td>
+              <td><span class="check-no">Outdated Win32 (XP Era)</span></td>
+            </tr>
+            <tr>
+              <td>100% Offline &amp; Zero Cloud Telemetry</td>
+              <td class="compare-highlight"><span class="check-yes">&#10003; Zero Telemetry</span></td>
+              <td>Telemetry Enabled</td>
+              <td>Varies</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </section>
